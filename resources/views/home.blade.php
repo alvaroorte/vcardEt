@@ -7,12 +7,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="alert alert-dismissible alert-success text-center" id="alertLogin">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                Usted accedio al sistema correctamente!
-            </div>
             <div class="card">
-
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">

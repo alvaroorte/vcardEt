@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg bg-primary shadow-sm" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-primary shadow-sm fixed-top" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">Nosotros</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navAcordeon" aria-controls="navAcordeon" aria-expanded="false" >
@@ -81,7 +81,7 @@
         </nav>
         
 
-        <main class="p-4">
+        <main class="p-4 sticky-sm-top" style="margin-top: 3.5rem;">
             
             <div class="card">
                 <div class="card-header bg-primary text-white">
@@ -93,7 +93,7 @@
             </div>
             
         </main>
-        <div class="footer text-center col-md-12">
+        <div class="footer text-center col-md-12 mt-2 fixed-bottom">
             <p>ENDE TECNOLOGIAS S. A. <i class="fa-regular fa-copyright"></i> <script>document.write(new Date().getFullYear())</script></p>
         </div>
     </div>
