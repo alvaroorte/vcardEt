@@ -3,18 +3,39 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PersonasController;
-use App\Http\Controllers\PruebasController;
+use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\UserController;
+
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-route::get('mensaje', [PruebasController::class, 'mensaje']);
-route::get('mensaje/{nombre}', [PruebasController::class, 'mensajeConNombre']);
-route::get('post/{n}/{m}', [PruebasController::class, 'post']);
-route::get('salir', [PruebasController::class, 'salir'])->name('salir');
+// RUTAS PARA PERSONAS
+route::get('/listPeople', [PersonasController::class, 'listPeople'])->name('listPeople')->middleware('can:persona.list');
+route::get('/formPerson', [PersonasController::class, 'formPerson'])->name('formPerson')->middleware('can:persona.form');
+route::get('/formPersonEdit/{idPerson}', [PersonasController::class, 'formPersonEdit'])->name('formPersonEdit')->middleware('can:persona.formEdit');
+route::post('/createPerson', [PersonasController::class, 'createPerson'])->name('createPerson')->middleware('can:persona.create');
+route::post('/editPerson', [PersonasController::class, 'editPerson'])->name('editPerson')->middleware('can:persona.formEdit');;
+route::get('/deletePerson/{idPerson}', [PersonasController::class, 'deletePerson'])->name('deletePerson')->middleware('can:persona.delete');
+route::get('/infoPerson/{identificador}', [PersonasController::class, 'infoPerson'])->name('infoPerson');
 
-route::get('vb', [PruebasController::class, 'vb'])->name('vb');
+// RUTAS PARA EMPRESA
+route::get('/listEmpresa', [EmpresaController::class, 'listEmpresa'])->name('listEmpresa')->middleware('can:user');
+route::get('/formEmpresa', [EmpresaController::class, 'formEmpresa'])->name('formEmpresa')->middleware('can:admin');
+route::get('/formEmpresaEdit/{idEmpresa}', [EmpresaController::class, 'formEmpresaEdit'])->name('formEmpresaEdit')->middleware('can:admin');
+route::post('/createEmpresa', [EmpresaController::class, 'createEmpresa'])->name('createEmpresa')->middleware('can:admin');
+route::post('/editEmpresa', [EmpresaController::class, 'editEmpresa'])->name('editEmpresa')->middleware('can:admin');;
+route::get('/deleteEmpresa{idEmpresa}', [EmpresaController::class, 'deleteEmpresa'])->name('deleteEmpresa')->middleware('can:admin');
 
-route::get('formulario', [PersonasController::class, 'formulario'])->name('formulario');
-route::post('guardarPersona', [PersonasController::class, 'guardarPersona'])->name('guardarPersona');
+// RUTAS PARA EMPRESA
+Route::resource('users', UserController::class)->names('users')->middleware('can:admin');
 
 
 /*
@@ -27,37 +48,3 @@ route::post('guardarPersona', [PersonasController::class, 'guardarPersona'])->na
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/ruta1', function () {
-    return "Hello world";
-});
-
-Route::get('/ruta2', function () {
-    $var1 = 4;
-    $var2 = 6;
-    return "los numeros son $var1 y $var2";
-});
-
-Route::get('/ruta2/{var1}/{var2}', function ($var1, $var2) {
-    // $var1 = 4;
-    // $var2 = 6;
-    return "los numeros son $var1 y $var2";
-});
-
-// estos 2 son iguales
-Route::get('/ruta3', function () {
-    return redirect('ruta1');
-});
-
-Route::redirect('ruta3', 'ruta1');
- 
-
-Route::get('/ruta4', function () {
-    return redirect('ruta2');
-});
-
-Route::redirect('ruta4', 'ruta2/1/2');
