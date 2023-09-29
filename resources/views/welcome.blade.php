@@ -45,8 +45,8 @@
         <div class="container-fluid" data-aos="fade-up">
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-lg-6   order-2 order-lg-1 d-flex flex-column justify-content-center">
-                    <h1>SISTEMA DE TARJETAS</h1>
-                    <h2>Registro de personas.</h2>
+                    <h1>SISTEMA DE TARJETAS VIRTUALES</h1>
+                    <h2>Sistema de tarjetas virtuales, descarga de contactos vcard, generacion de QR, registro de personas y empresas.</h2>
                     @if (Route::has('login'))
                     @auth
                         <div><a href="{{ url('/home') }}" class="btn-get-started scrollto">Volver al Sistema</a></div>
