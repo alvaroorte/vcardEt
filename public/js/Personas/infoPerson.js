@@ -17,13 +17,21 @@ $( document ).ready(function() {
 		let removecanvas = $("#vcardcanvas");
 		removecanvas.remove();
 	});
-
+	
+	$(".divLink").click( function(e) {
+		const a = $(e.target).find('.alink')[0];
+		if (a) {
+			a.click();
+		}
+	});
+	($('#fax').text().replace(/\s+/g, ' '))? console.log("siiiii: "+$('#fax').text().replace(/\s+/g, ' ')): console.log("nooooooo: "+$('#fax').text().replace(/\s/g, ' '));
 
 	// Activa los tooltips
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 		return new bootstrap.Tooltip(tooltipTriggerEl)
 	})
+	
 });
 
 

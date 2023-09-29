@@ -1,69 +1,3 @@
-{{-- @extends('layouts.app')
-
-@section('card')
-            <div class="row justify-content-center">
-                <div class="col-sm-10 col-md-6 col-lg-4">
-                    <div class="card profile-card-3 sombra-black">
-                        <div class="background-block">
-                            <img src="{{asset('images/fondoPerson/'.$person->fondo)}}" alt="profile-sample1" class="background">
-                        </div>
-                        <div class="profile-thumb-block">
-                            <img src="{{asset('images/personPhoto/'.$person->foto)}}" alt="profile-image" class="profile-lg profile-md profile-sm ">
-                        </div>
-                        <div class="card-content">
-                            <h2>{{$person->primer_nombre}} 
-                                @if ($person->segundo_nombre)
-                                    {{$person->segundo_nombre}}
-                                @endif 
-                                {{$person->primer_apellido}}
-                                @if ($person->segundo_apellido)
-                                    {{$person->segundo_apellido}}
-                                @endif 
-                                <small>{{$person->cargo}}</small>
-                            </h2>
-                            <h3>{{$person->nombre}}</h3>
-                            <div class="icon-block">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
-                                        <a href="#"> <i class="fa-regular fa-envelope"></i></a><br>
-                                        {{$person->correo}}
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                                        <a href="#"><i class="fa fa-mobile "></i></a><br>   
-                                        {{$person->celular}}
-                                    </div>
-                                   
-                                    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-                                        <a href="#"> <i class="fa fa-phone"></i></a><br>
-                                        @if ($person->telefono)
-                                            {{$person->telefono}}
-                                        @else
-                                            ---
-                                        @endif
-                                    </div>
-                                    <div>
-                                        <img alt="Código QR" id="codigo">
-                                    </div>
-                                </div>
-                                
-                                
-                                
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-@stop
-
-@section('scripts')
-    <script src="{{asset('js/Personas/infoPerson.js')}}"></script>
-@stop --}}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,22 +35,18 @@
                             <small id="cargo">{{$person->cargo}}</small>
                         </h2>
                         <h3 id="nombreEmpresa">{{$person->nombre}}</h3>
-                        {{-- <span id="paginaWeb" data-bs-toggle="tooltip" data-bs-original-title="Página Web">
-                            <a href="//{{$person->pagina_web}}"><i class="fa fa-at me-2"></i></a>{{$person->pagina_web}}
-                        </span> --}}
-                        {{-- <div class="icon-block"> --}}
                             <div class="row">
-                                <div id="paginaWeb" class="col-lg-12 col-md-6 col-sm-12 mb-3" data-bs-toggle="tooltip" data-bs-original-title="Página Web">
-                                    <a href="//{{$person->pagina_web}}" class="d-md-block d-lg-inline" target="_blank"><i class="fa fa-at me-2"></i></a>
+                                <div id="paginaWeb" class="col-lg-12 col-md-6 col-sm-12 mb-3 divLink" data-bs-toggle="tooltip" data-bs-original-title="Página Web">
+                                    <a href="//{{$person->pagina_web}}" class="d-md-block d-lg-inline alink" target="_blank"><i class="fa fa-at me-2"></i></a>
                                     {{$person->pagina_web}}
                                 </div>
                                 
-                                <div id="correo" class="col-lg-4 col-md-6 col-sm-12 mb-3" data-bs-toggle="tooltip" data-bs-original-title="Correo electrónico laboral">
-                                    <a class="d-md-block" href="mailto:{{$person->correo}}.com?subject=Asunto del Correo&body=Cuerpo del Correo" target="_blank"> <i class="fa-regular fa-envelope me-2"></i></a>
+                                <div id="correo" class="col-lg-4 col-md-6 col-sm-12 mb-3 divLink" data-bs-toggle="tooltip" data-bs-original-title="Correo electrónico laboral">
+                                    <a class="d-md-block alink" href="mailto:{{$person->correo}}.com?subject=Asunto del Correo&body=Cuerpo del Correo" target="_blank"> <i class="fa-regular fa-envelope me-2"></i></a>
                                     {{$person->correo}}
                                 </div>
-                                <div id="celular" class="col-lg-4 col-md-6 col-sm-12 mb-3" data-bs-toggle="tooltip" data-bs-original-title="Número de celular">
-                                    <a class="d-md-block" href="https://api.whatsapp.com/send?phone={{$person->celular}}" target="_blank"><i class="fa fa-mobile-screen  me-2"></i></a>   
+                                <div id="celular" class="col-lg-4 col-md-6 col-sm-12 mb-3 divLink" data-bs-toggle="tooltip" data-bs-original-title="Número de celular">
+                                    <a class="d-md-block alink" href="https://api.whatsapp.com/send?phone={{$person->celular}}" target="_blank"><i class="fa fa-mobile-screen  me-2"></i></a>   
                                     {{$person->celular}}
                                 </div>
                                
