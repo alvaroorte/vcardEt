@@ -21,7 +21,7 @@ class UserController extends Controller
         $users = User::all();
         
         $cantidad = $users->Count();
-        return view('Users.listUSers',compact('users','cantidad'));
+        return view('Users.listUsers',compact('users','cantidad'));
     }
 
     /**

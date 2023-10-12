@@ -34,7 +34,7 @@ route::post('/createEmpresa', [EmpresaController::class, 'createEmpresa'])->name
 route::post('/editEmpresa', [EmpresaController::class, 'editEmpresa'])->name('editEmpresa')->middleware('can:admin');;
 route::get('/deleteEmpresa{idEmpresa}', [EmpresaController::class, 'deleteEmpresa'])->name('deleteEmpresa')->middleware('can:admin');
 
-// RUTAS PARA EMPRESA
+// RUTAS PARA USERS
 Route::resource('users', UserController::class)->names('users')->middleware('can:admin');
 
 
