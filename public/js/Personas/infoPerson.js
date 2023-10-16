@@ -56,7 +56,7 @@ function GenerarVcard(){
 	var typeFondo = imgFondo.src.split('.').pop().split(/\#|\?/)[0];
 
 	// Genero la Tarjeta de la persona
-	var person = vCard.create(vCard.Version.FOUR);
+	var person = vCard.create(vCard.Version.THREE);
 	person.add(vCard.Entry.FORMATTEDNAME, $('#nombre').text().replace(/\s+/g, ' '));
 	person.add(vCard.Entry.NAME, $('#nombre').text().replace(/\s+/g, ' '));
 	person.add(vCard.Entry.EMAIL, $('#correo').text().replace(/\s+/g, ' '), vCard.Type.WORK);
